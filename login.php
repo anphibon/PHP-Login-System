@@ -56,6 +56,9 @@
 				</form>
 			</div>
 		</div>
+		<p>Click the button to alert the hostname of the current URL.</p>
+
+		
 
 		<?php require_once "inc/footer.php" ?>
 	</body>
