@@ -1,36 +1,31 @@
-
 $(document)
 .on("submit", "form.js-register", function(event) {
 	event.preventDefault();
 
 	var _form = $(this);
 	var email_error = $(".js-email-error", _form);
-	var password_error = $(".js-password-error", _form);
+	var password_error = $(".js-password- error", _form);
 
 	var dataObj = {
 		email: $("input[type='email']", _form).val(),
 		password: $("input[type='password']", _form).val()
 	};
 
-	if(dataObj.email.length < 12){
-		email_error.text("please enter a valid email address").show();
-		
-	}
-	if(dataObj.password.length < 11){
-		password_error.text("Please enter a password that is atleast 11 characters long.").show();
-	}
-	if(dataObj.email.length < 12 || dataObj.password.length < 11)
-	{
+	if(dataObj.email.length < 6) {
+		email_error
+			.text("Please enter a valid email address")
+			.show();
+		return false;
+	} else if (dataObj.password.length < 11) {
+		password_error
+			.text("Please enter a passphrase that is at least 11 characters long.")
+			.show();
 		return false;
 	}
 
-	
-	
-
-	//alert("hi how are you");
-	password_error.hide();
+	// Assuming the code gets this far, we can start the ajax process
 	email_error.hide();
-	
+	password_error.hide();
 
 	$.ajax({
 		type: 'POST',
@@ -41,16 +36,19 @@ $(document)
 	})
 	.done(function ajaxDone(data) {
 		// Whatever data is 
-		console.log(data);
 		if(data.redirect !== undefined) {
 			window.location = data.redirect;
+		} else if(data.error !== undefined) {
+			password_error
+				.text(data.error)
+				.show();
 		}
-
-		alert(data.name);
+			_error
+				.text('test')
+				.show();
 	})
 	.fail(function ajaxFailed(e) {
 		// This failed 
-		console.log(e);
 	})
 	.always(function ajaxAlwaysDoThis(data) {
 		// Always do
