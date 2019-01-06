@@ -5,7 +5,7 @@
 	// Require the config
 	require_once "inc/config.php"; 
 
-
+	ForceDashboard();
 ?>
 
 <!DOCTYPE html>
@@ -37,15 +37,15 @@
 			        </div>
 			     	 
 			    </div>
-			   		<div class="uk-margin uk-alert uk-alert-danger js-email-error" style='display: none;'>text</div>
+			   		<div class="uk-margin uk-alert uk-alert-danger js-email-error" style='display: none;'></div>
 
 			    <div class="uk-margin">
 			        <label class="uk-form-label" for="form-stacked-password">Password</label>
 			        <div class="uk-form-controls">
-			            <input class="uk-input" id="form-stacked-password" type="password" required='required' placeholder="Your passphrase">
+			            <input class="uk-input" id="form-stacked-password" type="password" required='required' placeholder="Your Password">
 			        </div>
 			    </div>
-			    	 <div class="uk-margin uk-alert uk-alert-danger js-password-error" style='display: none;'>text</div>
+			    	 <div class="uk-margin uk-alert uk-alert-danger js-password-error" style='display: none;'></div>
 
 			   
 

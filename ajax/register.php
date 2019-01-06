@@ -6,7 +6,7 @@
 	// Require the config
 	require_once "../inc/config.php";  
 
-	if($_SERVER['REQUEST_METHOD'] == 'POST' or 1==1) {
+	if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		// Always return JSON format
 		// header('Content-Type: application/json');
 
@@ -23,7 +23,6 @@
 			// User exists 
 			// We can also check to see if they are able to log in. 
 			$return['error'] = "You already have an account";
-			$return['is_logged_in'] = false;
 	} else {
 			// User does not exist, add them now. 
 
@@ -39,7 +38,6 @@
 			$_SESSION['user_id'] = (int) $user_id;
 
 			$return['redirect'] = '/dashboard.php?message=welcome';
-			$return['is_logged_in'] = true;
 		}
 
 		// Return the proper information back to JavaScrit to redirect us.
