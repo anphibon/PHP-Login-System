@@ -5,7 +5,7 @@
 	// Require the config
 	require_once "inc/config.php"; 
 
-	ForceDashboard();
+	ForceLogin();
 ?>
 
 <!DOCTYPE html>
@@ -52,6 +52,7 @@
 			    <div class="uk-margin">
 			        <button class="uk-button uk-button-default" type="submit">Register</button>
 			    </div>
+			   
 
 			</form>
   		</div>
